@@ -30,12 +30,12 @@ server.pid
 test-result
 tmp
 true
-.idea_modules
 bin
 *.class
 *.log
 
 # sbt specific
+.idea/*
 dist/*
 target/*
 lib_managed/
