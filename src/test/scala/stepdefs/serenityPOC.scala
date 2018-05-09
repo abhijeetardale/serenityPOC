@@ -1,5 +1,6 @@
 package stepdefs
 
+import cucumber.api.PendingException
 import cucumber.api.scala.{EN, ScalaDsl}
 import net.thucydides.core.annotations.Steps
 import org.scalatest.Matchers
@@ -10,14 +11,19 @@ import pages.{AmazonPage, BasePage}
   */
 
 
+@net.thucydides.core.annotations.Steps
+class serenityPOC extends ScalaDsl with EN with Matchers {
 
-class serenityPOC extends ScalaDsl with EN with Matchers with AmazonPage {
+ val amazonPage : AmazonPage = AmazonPage
 
-  @Steps
-
-  Given("""^I navigate to amazon website$"""){()=>
-    getURL
+  Given("""^I navigate to amazon website$"""){ () =>
+    //// Write code here that turns the phrase above into concrete actions
+    amazonPage.getURL
   }
+
+//  Given("""^I navigate to amazon website$"""){()=>
+//    amazonPage.getURL
+//  }
 
   And("""^I click the all items on the amazon home page$"""){()=>
 
@@ -28,11 +34,11 @@ class serenityPOC extends ScalaDsl with EN with Matchers with AmazonPage {
   }
 
   And("""^I type in '(.*)' in the search box$"""){(productName:String)=>
-    selectDropdown
+   amazonPage.selectDropdown
   }
 
   And("""^I press enter$"""){()=>
-    pressEnter
+    amazonPage.pressEnter
   }
 
   Then("""^I am on the results page$"""){()=>
@@ -40,11 +46,11 @@ class serenityPOC extends ScalaDsl with EN with Matchers with AmazonPage {
   }
 
   Then("""^I see that the first result has the name '(.*)' in it$"""){(result:String)=>
-          assertSearchText(result)
+    amazonPage.assertSearchText(result)
   }
 
   And("""^I hover mouse over '(.*)' to '(.*)' and click '(.*)'$"""){(productType1:String, productType2:String, productType3:String)=>
-    mouseOverGrocery
+    amazonPage.mouseOverGrocery
   }
 
   And("""^I hover mouse over '(.*)' sub menu$"""){(productType2:String)=>
@@ -56,8 +62,8 @@ class serenityPOC extends ScalaDsl with EN with Matchers with AmazonPage {
   }
 
   Then("""^I see '(.*)' in the H2 on results page$"""){(resultH2:String)=>
-     assertSearchText(resultH2)
-      closeBrowser
+    amazonPage.assertSearchText(resultH2)
+    amazonPage.closeBrowser
   }
 
   Then("""^I clear the shopping basket$"""){()=>
@@ -81,7 +87,7 @@ class serenityPOC extends ScalaDsl with EN with Matchers with AmazonPage {
   }
 
   And("""^I close the browser$"""){()=>
-     closeBrowser
+    amazonPage.closeBrowser
   }
 
 }
