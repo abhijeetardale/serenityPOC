@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(classOf[CucumberWithSerenity])
 @CucumberOptions(
-features = Array("src/test/resources/features/search_by_keyword.feature")
+features = Array("src/test/resources/features/search/search_by_keyword.feature")
 )
 class SearchByKeyword

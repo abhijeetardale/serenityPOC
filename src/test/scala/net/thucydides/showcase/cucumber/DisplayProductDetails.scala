@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(classOf[CucumberWithSerenity])
 @CucumberOptions(
-  features = Array("src/test/resources/features/display_product_details.feature")
+  features = Array("src/test/resources/features/search/display_product_details.feature")
 )
 class DisplayProductDetails
