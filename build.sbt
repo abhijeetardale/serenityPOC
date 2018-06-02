@@ -22,9 +22,12 @@ libraryDependencies ++= Seq(
   "io.cucumber" % "gherkin" % "5.0.0",
   "io.cucumber" % "cucumber-jvm" % "2.4.0",
   "io.cucumber" % "cucumber-core" % "2.4.0",
+  "org.slf4j" % "slf4j-simple" % "1.7.21",
   "net.serenity-bdd" % "serenity-core" % "1.9.16",
   "net.serenity-bdd" % "serenity-cucumber" % "1.9.7",
-  "net.serenity-bdd" % "serenity-junit" % "1.9.16"
+  "net.serenity-bdd" % "serenity-junit" % "1.9.16"/*,
+  "net.serenity-bdd" % "serenity-jira-plugin" % "1.9.0",
+  "net.serenity-bdd" % "serenity-jira-requirements-provider" % "1.9.0"*/
 )
 
 val myProject = (project in file(".")).enablePlugins(SerenitySbtPlugin)
